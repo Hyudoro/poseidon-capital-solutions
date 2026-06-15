@@ -5,3 +5,4 @@
 2. Java 17
 3. Thymeleaf
 4. Bootstrap v.4.3.1
+5. maven 4.0.0
