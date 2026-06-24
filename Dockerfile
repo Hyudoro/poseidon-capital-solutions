@@ -12,9 +12,8 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn package -Dmaven.test.skip=true -q
-#RUN mvn package -DskipTests -q
-#we skip compiling tests cause they are not implemented yet.
+#RUN mvn package -Dmaven.test.skip=true -q
+RUN mvn package -DskipTests -q
 
 # Running
 FROM eclipse-temurin:17-jre-alpine
