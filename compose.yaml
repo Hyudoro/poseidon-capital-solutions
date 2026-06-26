@@ -24,6 +24,7 @@ services:
     depends_on:
         mysql-db:
             condition: service_healthy
+    restart: on-failure
 
 volumes:
   mysql-data:
