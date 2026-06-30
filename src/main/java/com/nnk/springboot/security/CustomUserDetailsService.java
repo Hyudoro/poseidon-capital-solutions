@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/** Loads user-specific data from the database for Spring Security authentication. */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -20,6 +21,13 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Locates a user by username and returns their Spring Security representation.
+     *
+     * @param username the login name to look up
+     * @return a userDetails build from the matching user entity
+     * @throws UsernameNotFoundException if no user exists with that name
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.debug("Loading user details for '{}'", username);
