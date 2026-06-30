@@ -8,10 +8,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+/** Configures HTTP security rules, form-based login and logout for the application. */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    /**
+     * Builds the security filter chain with authorization rules, form login and logout.
+     *
+     * @param http the httpsecurity instance to configure
+     * @return the build SecurityFilterChain
+     * @throws Exception if configuration fails
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -34,6 +42,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * Returns a BCrypt password encoder with strength 10.
+     * @return a BCryptPasswordEncoder}
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
