@@ -8,7 +8,7 @@
 5. maven 4.0.0
 
 # Endpoints
-(Better read with edit mode)
+(Better read with the code mode)
 Access levels:
 - public: no login needed
 - logged in: any authenticated user
