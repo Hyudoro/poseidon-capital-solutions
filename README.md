@@ -101,3 +101,12 @@ POST /user/validate      admin only   create a user
 GET  /user/update/{id}   admin only   show edit form for a user
 POST /user/update/{id}   admin only   update a user
 GET  /user/delete/{id}   admin only   delete a user
+
+## Tests
+
+The suite covers all six domains, controller slice tests with MockMvc,
+service unit tests with Mockito, and the domain, security and password
+tests: 109 tests in all. They run on an in-memory H2 database, so building
+needs no MySQL. The Docker image's test stage runs the same suite before
+the jar is packaged, and CI repeats it on every push and pull request to
+main.
