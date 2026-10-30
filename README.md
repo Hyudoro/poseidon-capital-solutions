@@ -1,5 +1,7 @@
 # Poseidon Capital Solutions
 
+[![CI](https://github.com/Hyudoro/poseidon-capital-solutions/actions/workflows/ci.yml/badge.svg)](https://github.com/Hyudoro/poseidon-capital-solutions/actions/workflows/ci.yml)
+
 Spring Boot web application for a fictional trading desk: curve points, bid
 lists, ratings, rule names and trades, behind role-based access (user / admin).
 
