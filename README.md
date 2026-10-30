@@ -1,14 +1,42 @@
-# spring-boot
-## Technical:
+# Poseidon Capital Solutions
 
-1. Spring Boot 3.1.0
-2. Java 17
-3. Thymeleaf
-4. Bootstrap v.4.3.1
-5. maven 4.0.0
+Spring Boot web application for a fictional trading desk: curve points, bid
+lists, ratings, rule names and trades, behind role-based access (user / admin).
 
-# Endpoints
-(Better read with the code mode)
+## Stack
+
+- Java 17, Spring Boot 3.1.0, Thymeleaf, Bootstrap 4
+- MySQL 8
+- Maven 3.9 (via the multi-stage Docker build)
+- Docker & Docker Compose
+
+## Run it
+
+Create a `.env` file next to `compose.yaml`:
+
+```env
+DB_USER=demo
+DB_PASSWORD=change-me
+```
+
+Then build and start:
+
+```sh
+docker compose up --build
+```
+
+The app listens on http://localhost:8080. A demo admin account is created on
+first start: **admin / test**.
+
+The Dockerfile builds in stages: the test stage runs `mvn verify` before the
+jar is packaged, and the JaCoCo report can be exported on demand:
+
+```sh
+docker build --target report --output type=local,dest=./jacoco-report .
+```
+
+## Endpoints
+
 Access levels:
 - public: no login needed
 - logged in: any authenticated user
